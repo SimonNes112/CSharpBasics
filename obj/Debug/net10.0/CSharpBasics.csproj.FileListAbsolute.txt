@@ -12,3 +12,4 @@
 /Users/simon/Projecten/projecten_prive/CSharpBasics/obj/Debug/net10.0/CSharpBasics.pdb
 /Users/simon/Projecten/projecten_prive/CSharpBasics/obj/Debug/net10.0/CSharpBasics.genruntimeconfig.cache
 /Users/simon/Projecten/projecten_prive/CSharpBasics/obj/Debug/net10.0/ref/CSharpBasics.dll
+/Users/simon/Projecten/projecten_prive/CSharpBasics/obj/Debug/net10.0/CSharpBasics.sourcelink.json

@@ -1,14 +1,15 @@
-﻿using System;
-
+﻿using System.Text.Json;
 namespace MenuApp
 {
     class Program
     {
-        public record User(string FirstName, string LastName);
+        public record User(int Id, string FirstName, string LastName);
+
         private static List<User> Users = new List<User>();
 
         static void Main(string[] args)
         {
+            LoadUsersFromJson("users.json");
             bool showMenu = true;
             while (showMenu)
             {
@@ -53,7 +54,9 @@ namespace MenuApp
             string firstName = Console.ReadLine();
             Console.Write("Enter Last Name: ");
             string lastName = Console.ReadLine();
-            Users.Add(new User(firstName, lastName));
+            int newId = Users.Count > 0 ? Users.Max(u => u.Id) + 1 : 1;
+            Users.Add(new User(newId, firstName, lastName));
+            SaveUsersToJson("users.json");
             Console.WriteLine("User added successfully!");
             Console.WriteLine("Press any key to return to the main menu...");
         }
@@ -68,38 +71,53 @@ namespace MenuApp
             Console.WriteLine("Here are all the Users:");
             for (int i = 0; i < Users.Count; i++)
             {
-                var user = Users[i];
-                Console.WriteLine($" {i}: {user.FirstName} {user.LastName}");
+                Console.WriteLine($"ID: {Users[i].Id}, First Name: {Users[i].FirstName}, Last Name: {Users[i].LastName}");
             }
             Console.WriteLine("Press any key to return to the main menu...");
             return true;
             
         }
+    
 
+        private static void SaveUsersToJson(string filePath)
+        {
+            var jsonString = JsonSerializer.Serialize(Users);
+            File.WriteAllText(filePath, jsonString);
+        }
+
+        private static void LoadUsersFromJson(string filePath)
+        {
+            if (File.Exists(filePath))
+            {
+                var jsonString = File.ReadAllText(filePath);
+                Users = JsonSerializer.Deserialize<List<User>>(jsonString) ?? new List<User>();
+            }
+        }
 
         private static void RemoveUser()
         {
-            if (!ShowAllUsers())
+            if (ShowAllUsers() == false)
             {
                 return;
-            } 
-            
-            Console.WriteLine("Pick a user you want to delete");
-            string input = Console.ReadLine();
-            int removeUser;
-            while (!int.TryParse(input, out removeUser))
-            {
-                Console.WriteLine("Please enter a valid number:");
-                input = Console.ReadLine();
             }
-            if (removeUser >= 0 && removeUser < Users.Count)
+            Console.Write("Enter the ID of the user to remove: ");
+            if (int.TryParse(Console.ReadLine(), out int userId))
             {
-                Users.RemoveAt(removeUser);
-                Console.WriteLine("User removed successfully!");
+                var userToRemove = Users.FirstOrDefault(u => u.Id == userId);
+                if (userToRemove != null)
+                {
+                    Users.Remove(userToRemove);
+                    SaveUsersToJson("users.json");
+                    Console.WriteLine("User removed successfully!");
+                }
+                else
+                {
+                    Console.WriteLine("User not found!");
+                }
             }
             else
             {
-                Console.WriteLine("Invalid user index!");
+                Console.WriteLine("Invalid ID format!");
             }
             Console.WriteLine("Press any key to return to the main menu...");
         }
