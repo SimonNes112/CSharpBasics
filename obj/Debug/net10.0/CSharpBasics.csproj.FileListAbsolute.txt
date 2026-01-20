@@ -1,0 +1,14 @@
+/Users/simon/Projecten/projecten_prive/CSharpBasics/bin/Debug/net10.0/CSharpBasics
+/Users/simon/Projecten/projecten_prive/CSharpBasics/bin/Debug/net10.0/CSharpBasics.deps.json
+/Users/simon/Projecten/projecten_prive/CSharpBasics/bin/Debug/net10.0/CSharpBasics.runtimeconfig.json
+/Users/simon/Projecten/projecten_prive/CSharpBasics/bin/Debug/net10.0/CSharpBasics.dll
+/Users/simon/Projecten/projecten_prive/CSharpBasics/bin/Debug/net10.0/CSharpBasics.pdb
+/Users/simon/Projecten/projecten_prive/CSharpBasics/obj/Debug/net10.0/CSharpBasics.GeneratedMSBuildEditorConfig.editorconfig
+/Users/simon/Projecten/projecten_prive/CSharpBasics/obj/Debug/net10.0/CSharpBasics.AssemblyInfoInputs.cache
+/Users/simon/Projecten/projecten_prive/CSharpBasics/obj/Debug/net10.0/CSharpBasics.AssemblyInfo.cs
+/Users/simon/Projecten/projecten_prive/CSharpBasics/obj/Debug/net10.0/CSharpBasics.csproj.CoreCompileInputs.cache
+/Users/simon/Projecten/projecten_prive/CSharpBasics/obj/Debug/net10.0/CSharpBasics.dll
+/Users/simon/Projecten/projecten_prive/CSharpBasics/obj/Debug/net10.0/refint/CSharpBasics.dll
+/Users/simon/Projecten/projecten_prive/CSharpBasics/obj/Debug/net10.0/CSharpBasics.pdb
+/Users/simon/Projecten/projecten_prive/CSharpBasics/obj/Debug/net10.0/CSharpBasics.genruntimeconfig.cache
+/Users/simon/Projecten/projecten_prive/CSharpBasics/obj/Debug/net10.0/ref/CSharpBasics.dll
